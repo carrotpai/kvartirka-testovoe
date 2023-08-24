@@ -1,7 +1,14 @@
-import React from "react";
+import { Check } from '@/libs/components';
+import React from 'react';
 
-function Cart() {
-	return <div>Cart</div>;
+import styles from './page.module.scss';
+
+function Page() {
+  return (
+    <div>
+      <Check />
+    </div>
+  );
 }
 
-export default Cart;
+export default Page;

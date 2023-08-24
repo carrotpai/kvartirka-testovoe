@@ -1,0 +1,21 @@
+@use "sass:list";
+
+@mixin PassionOneRegular($font-size, $line-height) {
+    font: 400 font($font-size, $line-height) var(--passion-one-font);
+}
+
+@mixin HelveticaLight($font-size, $line-height) {
+    font: 300 font($font-size, $line-height) var(--helvetica-font);
+}
+
+@mixin HelveticaRegular($font-size, $line-height) {
+    font: 400 font($font-size, $line-height) var(--helvetica-font);
+}
+
+@mixin HelveticaBold($font-size, $line-height) {
+    font: 700 font($font-size, $line-height) var(--helvetica-font);
+}
+
+@function font($font-size, $line-height) {
+    @return list.slash($font-size, $line-height);
+}

@@ -1,0 +1,68 @@
+@use "../../utils/fonts/fonts.scss";
+.asteroid {
+    width: 380px;
+    &__close-date {
+        color: var(--white-base);
+        @include fonts.HelveticaBold(24px, 32px);
+        margin-bottom: 8px;
+    }
+    &__bottom-part {
+        margin-top: 16px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+.info {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 8px;
+    &__distance {
+        & > p {
+            color: var(--white-base);
+            @include fonts.HelveticaRegular(16px, 24px);
+        }
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 8px;
+    }
+    &__other-stats {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    &__name {
+        color: var(--white-base);
+        @include fonts.HelveticaBold(16px, 24px);
+        text-decoration: underline;
+    }
+    &__diameter {
+        color: var(--white-base);
+        @include fonts.HelveticaRegular(12px, 16px);
+    }
+}
+
+.hazard {
+    color: var(--gray);
+    @include fonts.HelveticaRegular(14px, 20px);
+}
+
+.order {
+    background-color: var(--orange-base);
+    color: var(--white-base);
+    padding: 2px 12px;
+    border-radius: 50px;
+    @include fonts.HelveticaBold(11px, 20px);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 300ms ease-in-out 0ms;
+    &:hover {
+        opacity: 0.7;
+    }
+    &_active {
+        color: var(--orange-base);
+        background-color: rgba(248, 102, 0, 0.15);
+    }
+}

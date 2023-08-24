@@ -1,0 +1,29 @@
+@use "../../utils/fonts/fonts.scss";
+.check {
+    &__title {
+        color: var(--white-base);
+        @include fonts.HelveticaBold(28px, 36px);
+    }
+
+    &__list {
+        margin-top: 24px;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 24px;
+        overflow-y: scroll;
+        height: 560px;
+        &::-webkit-scrollbar {
+            width: 3px; /* width of the entire scrollbar */
+        }
+
+        &::-webkit-scrollbar-track {
+            border-radius: 20px;
+            background: var(--black); /* color of the tracking area */
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 20px; /* roundness of the scroll thumb */
+            border: 3px solid var(--orange-base); /* creates padding around scroll thumb */
+        }
+    }
+}

@@ -1,0 +1,37 @@
+@use "../libs/utils/fonts/fonts.scss";
+.title {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 16px;
+    &__logo {
+        color: var(--orange-base);
+        @include fonts.PassionOneRegular(32px, 32px);
+        line-height: normal;
+    }
+    &__text {
+        margin-top: 8px;
+        color: var(--white-base);
+        @include fonts.HelveticaRegular(16px, 24px);
+        width: 300px;
+    }
+}
+
+.layout {
+    position: relative;
+    &__earth {
+        z-index: 1;
+        position: absolute;
+        top: 15%;
+        left: -19%;
+    }
+}
+
+.page {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 50vw;
+    position: relative;
+    z-index: 2;
+    margin: auto;
+}
