@@ -1,8 +1,9 @@
 @use "../../utils/fonts/fonts.scss";
+@use "../../utils/media";
 .list {
     &__content {
         width: 400px;
-        height: 560px;
+        max-height: 560px;
         overflow-y: scroll;
         display: flex;
         flex-flow: column nowrap;
@@ -19,6 +20,10 @@
         &::-webkit-scrollbar-thumb {
             border-radius: 20px; /* roundness of the scroll thumb */
             border: 3px solid var(--orange-base); /* creates padding around scroll thumb */
+        }
+        @include media.mobile {
+            width: 310px;
+            max-height: 350px;
         }
     }
 }
@@ -47,7 +52,7 @@
         border: none;
         cursor: pointer;
         background: none;
-        color: var(--white-base);
+        color: inherit;
         @include fonts.HelveticaRegular(16px, 24px);
         &:hover {
             text-decoration: underline;

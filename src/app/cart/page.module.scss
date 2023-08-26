@@ -1,0 +1,10 @@
+@use "../../libs/utils/media";
+.page {
+    position: relative;
+    width: 50vw;
+    margin: auto;
+    z-index: 2;
+    @include media.mobile {
+        width: 310px;
+    }
+}

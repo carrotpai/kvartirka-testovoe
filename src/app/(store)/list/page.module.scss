@@ -1,0 +1,21 @@
+@use "../../../libs/utils/fonts/fonts.scss";
+@use "../../../libs/utils/media";
+
+.page {
+  width: auto;
+  @include media.mobile {
+    width: 300px;
+    margin: auto;
+  }
+}
+
+.title {
+  color: inherit;
+  @include fonts.HelveticaBold(28px, 36px);
+  margin-bottom: 12px;
+  width: 400px;
+  @include media.mobile {
+    width: 300px;
+    margin-top: 4px;
+  }
+}

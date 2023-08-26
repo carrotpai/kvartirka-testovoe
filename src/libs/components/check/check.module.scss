@@ -11,7 +11,7 @@
         flex-flow: column nowrap;
         gap: 24px;
         overflow-y: scroll;
-        height: 560px;
+        max-height: 560px;
         &::-webkit-scrollbar {
             width: 3px; /* width of the entire scrollbar */
         }
@@ -24,6 +24,27 @@
         &::-webkit-scrollbar-thumb {
             border-radius: 20px; /* roundness of the scroll thumb */
             border: 3px solid var(--orange-base); /* creates padding around scroll thumb */
+        }
+    }
+}
+
+.buttons {
+    margin-top: 24px;
+    &__order {
+        background-color: var(--orange-base);
+        color: var(--white-base);
+        padding: 2px 12px;
+        border-radius: 50px;
+        @include fonts.HelveticaBold(11px, 20px);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all 300ms ease-in-out 0ms;
+        &:hover {
+            opacity: 0.7;
+        }
+        &_active {
+            color: var(--orange-base);
+            background-color: rgba(248, 102, 0, 0.15);
         }
     }
 }

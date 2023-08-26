@@ -1,5 +1,7 @@
 @use "../../utils/fonts/fonts.scss";
+@use "../../utils/media";
 .cart {
+    height: fit-content;
     margin-left: 48px;
     background-color: var(--cart-color);
     padding: 16px;
@@ -21,15 +23,25 @@
             opacity: 0.8;
         }
     }
+    @include media.mobile {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 12px 16px;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        border-radius: 0;
+        bottom: 0;
+        margin: 0px;
+        position: fixed;
+        z-index: 2;
+    }
 }
 
 .text {
     &__title {
-        color: var(--white-base);
         @include fonts.HelveticaBold(18px, 24px);
     }
     &__length {
-        color: var(--white-base);
         @include fonts.HelveticaRegular(16px, 24px);
     }
 }

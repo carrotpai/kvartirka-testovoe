@@ -5,7 +5,7 @@ import AsteroidsList from '../asteroidsList';
 
 async function HydratedAsteroidsData() {
   const queryClient = getQueryClient();
-  await queryClient.prefetchInfiniteQuery(['asteroids'], fetchAsteroids);
+  await queryClient.prefetchInfiniteQuery(['asteroids'], fetchAsteroids, { staleTime: Infinity });
   const dehydratedState = dehydrate(queryClient);
   return (
     <Hydrate state={dehydratedState}>

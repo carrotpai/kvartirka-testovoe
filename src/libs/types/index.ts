@@ -1,4 +1,4 @@
-export interface AsteroidListItemDataType {
+export interface AsteroidDataType {
   id: string;
   name: string;
   approachDate: string;
@@ -8,10 +8,16 @@ export interface AsteroidListItemDataType {
     lunar: string;
     km: string;
   };
+  velocity: {
+    sec: string;
+    hour: string;
+  };
+  fullApproachDate: string;
+  orbitingBody: string;
 }
 
 export interface AsteroidsListDataType {
-  asteroids: Array<AsteroidListItemDataType>;
+  asteroids: Array<AsteroidDataType>;
   nextPage: number;
 }
 
@@ -45,4 +51,19 @@ export interface AsteroidResponseType {
       orbiting_body: string;
     },
   ];
+}
+
+export interface AsteroidCloseApproachResponseData {
+  close_approach_date: string;
+  close_approach_date_full: string;
+  epoch_date_close_approach: number;
+  relative_velocity: {
+    kilometers_per_second: string;
+    kilometers_per_hour: string;
+  };
+  miss_distance: {
+    lunar: string;
+    kilometers: string;
+  };
+  orbiting_body: string;
 }

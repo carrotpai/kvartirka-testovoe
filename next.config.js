@@ -26,6 +26,15 @@ const nextConfig = {
       },
     env: {
         API_KEY: process.env.API_KEY
+    },
+    async redirects() {
+      return [
+        {
+          source: '/',
+          destination: "/list",
+          permanent: true
+        }
+      ]
     }
 }
 

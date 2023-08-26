@@ -5,8 +5,14 @@ body {
   margin: 0;
   font-family: "Arial", sans-serif;
   background-color: var(--black);
+  color: var(--white-base);
 }
 
 p {
   margin: 0;
+  color: inherit;
+}
+
+span {
+  color: inherit;
 }

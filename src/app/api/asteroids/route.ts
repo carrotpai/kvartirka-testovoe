@@ -30,6 +30,12 @@ export async function GET(request: NextRequest) {
         lunar: item.close_approach_data[0].miss_distance.lunar,
       },
       isHazard: item.is_potentially_hazardous_asteroid,
+      velocity: {
+        sec: item.close_approach_data[0].relative_velocity.kilometers_per_second,
+        hour: item.close_approach_data[0].relative_velocity.kilometers_per_hour,
+      },
+      fullApproachDate: item.close_approach_data[0].close_approach_date_full,
+      orbitingBody: item.close_approach_data[0].orbiting_body,
     })),
     nextPage: +page + 1,
   };

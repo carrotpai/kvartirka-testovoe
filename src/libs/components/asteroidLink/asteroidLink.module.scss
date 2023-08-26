@@ -1,0 +1,16 @@
+@use "../../utils/fonts/fonts.scss";
+.info {
+    &__other-stats {
+        cursor: pointer;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    &__name {
+        color: inherit;
+        @include fonts.HelveticaBold(16px, 24px);
+        text-decoration: underline;
+    }
+    &__diameter {
+        @include fonts.HelveticaRegular(12px, 16px);
+    }
+}

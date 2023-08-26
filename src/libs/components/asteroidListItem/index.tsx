@@ -1,16 +1,18 @@
 import { format, parse, setDefaultOptions } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import Image from 'next/image';
+import Link from 'next/link';
 import AsteroidImage from '@/../assets/asteroid.png';
-import { AsteroidListItemDataType } from '@/libs/types';
-import styles from './asteroidListItem.module.scss';
 import ArrowSvg from '@/../assets/icons/Arrow.svg';
 import { useAsteroidCart } from '@/libs/store';
+import { AsteroidDataType } from '@/libs/types';
+import styles from './asteroidListItem.module.scss';
 import { Button } from '..';
+import AsteroidLink from '../asteroidLink';
 
 setDefaultOptions({ locale: ru });
 
-interface AsteroidListItemProps extends AsteroidListItemDataType {
+interface AsteroidListItemProps extends AsteroidDataType {
   metric: 'km' | 'lunar';
   isInCart?: boolean;
   type: 'store' | 'check';
@@ -25,6 +27,9 @@ function Asteroid({
   missDistance,
   isHazard,
   metric,
+  velocity,
+  fullApproachDate,
+  orbitingBody,
   type,
 }: AsteroidListItemProps) {
   const addToCart = useAsteroidCart((state) => state.addAsteroid);
@@ -62,21 +67,28 @@ function Asteroid({
           width={asteroidImageSize.width}
           height={asteroidImageSize.height}
         />
-        <div className="info__other">
-          <div className={styles['info__other-stats']}>
-            <p className={styles.info__name}>{name}</p>
-            <p className={styles.info__diameter}>{`Ø ${Math.floor(diameter)} м`}</p>
-          </div>
-        </div>
+        <Link href={`/asteroid/${id}`} passHref legacyBehavior>
+          <AsteroidLink asteroidName={name} diameter={diameter} />
+        </Link>
       </div>
       <div className={styles['asteroid__bottom-part']}>
         {type === 'store' && (
           <Button
             onClick={() => {
-              addToCart({ id, name, approachDate, diameter, missDistance, isHazard });
+              addToCart({
+                id,
+                name,
+                approachDate,
+                diameter,
+                missDistance,
+                isHazard,
+                velocity,
+                fullApproachDate,
+                orbitingBody,
+              });
             }}
             className={`${styles.order} ${isInCart && styles.order_active}`}>
-            Заказать
+            {isInCart ? 'В Корзине' : 'Заказать'}
           </Button>
         )}
 

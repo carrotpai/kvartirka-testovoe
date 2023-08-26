@@ -1,12 +1,12 @@
-import { createWithEqualityFn } from 'zustand/traditional';
-import { AsteroidListItemDataType } from '@/libs/types';
 import { produce } from 'immer';
+import { createWithEqualityFn } from 'zustand/traditional';
+import { AsteroidDataType } from '@/libs/types';
 
 interface UseAsteroidCartType {
-  asteroids: Array<AsteroidListItemDataType>;
+  asteroids: Array<AsteroidDataType>;
   metric: 'km' | 'lunar';
   setMetric: (metric: 'km' | 'lunar') => void;
-  addAsteroid: (item: AsteroidListItemDataType) => void;
+  addAsteroid: (item: AsteroidDataType) => void;
   reset: () => void;
 }
 

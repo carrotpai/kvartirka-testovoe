@@ -8,7 +8,7 @@ import { fetchAsteroids } from '@/libs/clientApi';
 import { useAsteroidCart } from '@/libs/store';
 import { AsteroidsListDataType } from '@/libs/types';
 import styles from './asteroidsList.module.scss';
-import Asteroid from '../asteroidListItem';
+import { default as AsteroidItem } from '../asteroidListItem';
 
 function AsteroidsList() {
   const { asteroidsInCart, metric, setMetric } = useAsteroidCart(
@@ -32,6 +32,7 @@ function AsteroidsList() {
     queryKey: ['asteroids'],
     queryFn: fetchAsteroids,
     getNextPageParam: (lastPage, _) => lastPage.nextPage,
+    staleTime: Infinity,
   });
 
   React.useEffect(() => {
@@ -65,7 +66,7 @@ function AsteroidsList() {
         {asteroids?.pages.map((page, i) => (
           <React.Fragment key={i}>
             {page.asteroids.map((asteroid) => (
-              <Asteroid
+              <AsteroidItem
                 type="store"
                 key={asteroid.id}
                 {...asteroid}

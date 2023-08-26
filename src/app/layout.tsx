@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </p>
         </div>
         <main>
-          <section className={styles.page}>
+          <section>
             <Providers>{children}</Providers>
           </section>
         </main>
