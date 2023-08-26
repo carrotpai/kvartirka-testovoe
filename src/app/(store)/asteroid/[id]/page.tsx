@@ -1,6 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Asteroid } from '@/libs/components';
+import styles from './page.module.scss';
 
 export const metadata: Metadata = {
   title: 'Some Asteroid',
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 
 function page({ params }: { params: { id: string } }) {
   return (
-    <div>
+    <div className={styles.page}>
       <Asteroid id={params.id} />
     </div>
   );

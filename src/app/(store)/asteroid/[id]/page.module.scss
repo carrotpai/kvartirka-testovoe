@@ -1,0 +1,6 @@
+@use "../../../../libs/utils/media";
+.page {
+    @include media.mobile {
+        padding-bottom: 120px;
+    }
+}
