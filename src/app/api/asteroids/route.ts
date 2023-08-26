@@ -39,5 +39,11 @@ export async function GET(request: NextRequest) {
     })),
     nextPage: +page + 1,
   };
-  return new NextResponse(JSON.stringify(data));
+  return new NextResponse(JSON.stringify(data), {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 }
